@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        td{
+            padding:5px;
+        }
+          .datacellthree{
+              background-color:darkgray;
+              color:black;
+          }
+        
+          .datacellone {
+            background-color: lightgrey;
+            color: black;
+        }
+          .datacelltwo {
+            background-color:lightgray;
+            color: black;
+        }
+    </style>
+    <script type="text/javascript">
+        function Validate()
+        {
+            var name = document.getElementById("txtname").value;
+            if (name == "")
+            {
+                alert("Name can not be blank");
+                return;
+            }
+            var age = document.getElementById("txtage").value;
+            var age = parseInt(document.getElementById("txtage").value);
+            if (isNaN(age)) {
+                alert("enter age as number");
+                return;
+            }
+            var g = "";
+            var gen = document.getElementsByName("gen");
+            if (gen[0].checked)
+                g = gen[0].value;
+            if (gen[1].checked)
+                g = gen[1].value;
+            if (!(gen[0].checked || gen[1].checked))
+            {
+                alert("select gender");
+                return;
+            }
+            var loc = document.getElementById("loc").value;
+            if (loc == "Select") {
+                alert("select a location");
+                return;
+            }
+            alert("data entered:" + name + "," + age + " , " +g+","+loc);
+        }
+
+    </script>
+</head>
+<body>
+    <table border="1">
+       <tr>
+           <th>List of Persons</th>
+           <th>Add or Update Person Form</th>
+       </tr>
+        <tr>
+            <td>
+            <table>
+                
+        <tr><td class="datacellthree">Name</td><td class="datacellthree">Gender</td><td class="datacellthree">Age</td><td class="datacellthree">City</td><td class="datacellthree">Action</td></tr>         
+        <tr><td class="datacelltwo">shazad</td><td class="datacelltwo">male</td><td class="datacelltwo">30</td><td class="datacelltwo">Lahore</td><td class="datacelltwo">update/remove</td></tr>
+        <tr><td class="datacellone">danial</td><td class="datacellone">male</td><td class="datacellone">34</td><td class="datacellone">Islamabhad</td><td class="datacellone">update/remove</td></tr>
+        <tr><td class="datacelltwo">sara</td><td class="datacelltwo">female</td><td class="datacelltwo">34</td><td class="datacelltwo">Karachi</td><td class="datacelltwo">update/remove</td></tr>
+        <tr><td class="datacellone">Tahir</td><td class="datacellone">male</td><td class="datacellone">38</td><td class="datacellone">Lahore</td><td class="datacellone">update/remove</td></tr>
+
+    </table>
+                </td>
+     <td>
+    <form>
+        <table>
+            <tr>
+                <td>
+                    Name:
+                </td>
+                <td>
+                    <input type="text" id="txtname" />
+                </td>
+
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    Male<input type="radio" name="gen" value="Male" />
+                    Female<input type="radio" name="gen" value="Female"/>
+                </td>
+            </tr>
+            <tr>
+                <td> Enter Age:</td>
+       <td><input type="text" id="txtage"/></td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                    <td>
+                        <select id="loc">
+                            <option value="Select">Select</option>
+                        <option value="Lahore">Lahore</option>
+                            <option value="Islamabad">Islamabad</option>
+                            <option value="Karachi">Karachi</option>
+                           
+                            </select>
+                </td>
+                <tr>
+                    <td>
+                        <button type="reset" value="Reset">Reset</button></td>
+                        <td><button onclick="Validate()"value="Add">Add</button>
+                        <button onclick=""value="Update">Update</button></td>
+                    
+            </tr>
+        </table>
+    </form>
+     </td>
+            </table>
+</body>
+</html>
